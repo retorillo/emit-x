@@ -1,6 +1,8 @@
 # Emit X
 
-Emit X allows assign keyboard shortcut to Surface Pen Button (click, double
+[![Build status](https://ci.appveyor.com/api/projects/status/215tndv748iwpxh4?svg=true)](https://ci.appveyor.com/project/retorillo/emit-x)
+
+Emit X allows to assign keyboard shortcut to Surface Pen Button (click, double
 click, press and hold). Good for digital-painting.
 
 Duplicate `x64\emit-x.exe` (for 64bit) or `x86/emit-x.exe` (for 32bit), and
@@ -20,7 +22,14 @@ Name is case-insensitive. Currently, supports the following keys and its combina
 
 This is "workaround" app. I'm expecting Microsoft implement genuine feature.
 
-Tested on Surface Pro 4 + Windows 10 + Photoshop CC. Works on Windows 8 and later.
+Tested on Surface Pro 4 + Windows 10 + Photoshop CC. Works on Windows 8.1 and later.
+
+## Downloads
+
+Executable file is no longer included in this repository. Please download at:
+
+- [Github Releases](https://github.com/retorillo/emit-x/releases) (Recommended)
+- [AppVeyor Artifacts](https://ci.appveyor.com/project/retorillo/emit-x)
 
 ## License
 

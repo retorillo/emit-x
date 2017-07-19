@@ -1,0 +1,13 @@
+version: 1.0.{build}
+image: Visual Studio 2015
+platform:
+  - x64
+  - x86
+configuration:
+  - Debug
+  - Release
+artifacts:
+  - path: $(configuration)\$(platform)\emit-x.exe
+build:
+  project: emit-x.xml
+  verbosity: normal
