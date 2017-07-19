@@ -9,5 +9,5 @@ configuration:
 artifacts:
   - path: $(configuration)\$(platform)\emit-x.exe
 build:
-  project: emit-x.xml
+  project: build.xml
   verbosity: normal
