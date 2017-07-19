@@ -1,5 +1,8 @@
 version: 1.0.{build}
 image: Visual Studio 2015
+environment:
+  _TARGET_PLARFORM: 8.1
+  _PLATFORM_TOOLSET: v140
 platform:
   - x64
   - x86
