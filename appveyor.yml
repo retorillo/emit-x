@@ -11,7 +11,9 @@ configuration:
   - Debug
   - Release
 artifacts:
-  - path: $(configuration)\$(platform)\emit-x.exe
+  - path: '**\*.zip'
 build:
   project: build.xml
   verbosity: normal
+test_script:
+  - cmd: msbuild build.xml /t:RunTest

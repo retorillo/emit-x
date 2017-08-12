@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PlatformToolset Condition="'$(PlatformToolset)'==''">v141</PlatformToolset>
+    <PlatformTargetVersion Condition="'$(PlatformTargetVersion)'==''">8.1</PlatformTargetVersion>
+  </PropertyGroup>
   <Target Name="Build">
     <MSBuild Projects="emit-x.xml"/>
+    <CallTarget Targets="RunTest" Condition="'$(CI)'==''" />
+  </Target>
+  <Target Name="RunTest">
     <MSBuild Projects="test/test.xml"/>
   </Target>
 </Project>
