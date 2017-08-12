@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build;RunTest" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformTargetVersion Condition="'$(PlatformTargetVersion)'==''">8.1</PlatformTargetVersion>
     <PlatformToolset Condition="'$(PlatformToolset)'==''">v141</PlatformToolset>
-    <TargetPlatformVersion Condition="'$(TargetPlatformVersion)'==''">8.1</TargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)Microsoft.Cpp.default.props" />
   <PropertyGroup>
-    <ProjectName>emit-x</ProjectName>
     <OutDir>$(Configuration.toLower())\$(PlatformTarget)\</OutDir>
     <IntDir>$(OutDir)cache\</IntDir>
     <TLogLocation>$(IntDir)</TLogLocation>
@@ -32,13 +32,16 @@
   <Import Project="$(VCTargetsPath)Microsoft.Cpp.props" />
   <Import Project="$(VCTargetsPath)Microsoft.Cpp.targets" />
   <ItemGroup>
-    <ClCompile Include="emit-x.cpp" />
+    <ClCompile Include="test.cpp;../emit-x.cpp">
+      <AdditionalIncludeDirectories>$(VCInstallDir)UnitTest\include</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
-  <Target Name="AfterBuild">
-    <SetEnv Prefix="false" Name="OutDir" Value="$(OutDir)" />
-    <SetEnv Prefix="false" Name="ProjectName" Value="$(ProjectName)" />
-    <SetEnv Prefix="false" Name="BuildVersion" Value="$(BuildVersion)" />
-    <SetEnv Prefix="false" Name="PlatformTarget" Value="$(PlatformTarget)" />
-    <Exec Command="pack.bat" />
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="RunTest" Condition="'$(SkipTest)'==''">
+    <Exec Command="vstest.console /Platform:$(PlatformTarget) /InIsolation %(Link.OutputFile)" />
   </Target>
 </Project>

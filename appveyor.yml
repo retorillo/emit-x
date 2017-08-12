@@ -1,8 +1,9 @@
 version: 1.0.{build}
-image: Visual Studio 2015
+image: Visual Studio 2017
 environment:
-  _TARGET_PLARFORM: 8.1
-  _PLATFORM_TOOLSET: v140
+  TargetPlatformVersion: 8.1
+  PlatformToolset: v141
+  BuildVersion: $(appveyor_build_version)
 platform:
   - x64
   - x86
