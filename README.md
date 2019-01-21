@@ -12,13 +12,16 @@ and Windows Ink" setting.
 - To assign `B` key, change to `emit-b.exe`
 - To assign `F11` key, change to `emit-f11.exe`
 - To assign `Alt + Ctrl + Z` key combination, change to `emit-alt-ctrl-z.exe`
+- To assign `Windows + PrintScreen` key combination, change to `emit-win-prtscr.exe`
 
 Name is case-insensitive. Currently, supports the following keys and its combinations:
 
 - Modifiers keys `Ctrl` (or `Ctl`), `Alt`, `Shift`
+- Windows Key `Win` (or `Windows`)
 - Function keys `F1`-`F12`
 - Numerical keys `0` - `9`
 - Alphabetical keys `A` - `Z`.
+- Print Screen Key `PrintScreen` (or `PrtScr`, `PrtScreen`, `PrintScr`)
 
 This is "workaround" app. I'm expecting Microsoft implement genuine feature.
 
@@ -35,4 +38,4 @@ Executable file is no longer included in this repository. Please download at:
 
 MIT License
 
-Copyright (C) 2017 Retorillo
+Copyright (C) 2017-2019 Retorillo
