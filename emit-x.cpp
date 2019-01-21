@@ -32,7 +32,7 @@ bool send(std::vector<std::wstring> keys) {
     inputs[c + L].ki.dwExtraInfo = inputs[c].ki.dwExtraInfo = NULL;
   }
   bool affected = L2 != SendInput(L2, inputs, sizeof(INPUT));
-  delete inputs;
+  delete [] inputs;
   return affected;
 }
 LPARAM vk(std::wstring str) {
@@ -66,14 +66,14 @@ LPARAM vk(std::wstring str) {
 std::wstring module() {
   WCHAR* b = NULL;
   for (unsigned int c = 256, n = c; c < INT_MAX; c <<= 2) {
-    if (b) delete b;
+    if (b) delete [] b;
     b = new WCHAR[c];
     n = GetModuleFileNameW(NULL, b, c);
     if (c != n)
       break;
   }
   std::wstring s(b);
-  delete b;
+  delete [] b;
   return s;
 }
 std::wstring lower(std::wstring s) {
@@ -85,7 +85,7 @@ std::wstring env(std::wstring name) {
   auto b = new WCHAR[l];
   auto r = GetEnvironmentVariableW(name.c_str(), b, l);
   std::wstring s(b);
-  delete b;
+  delete [] b;
   return s;
 }
 std::wstring leaf(std::wstring path) {
@@ -94,7 +94,7 @@ std::wstring leaf(std::wstring path) {
   memcpy(b, path.c_str(), sizeof(WCHAR) * L);
   PathStripPathW(b);
   std::wstring s(b);
-  delete b;
+  delete [] b;
   return s;
 }
 std::wstring join(std::wstring x, std::wstring y){
