@@ -7,7 +7,7 @@ int WINAPI WinMain(HINSTANCE i, HINSTANCE p, LPSTR c, int s) {
   return !send(keys);
 }
 bool translate(std::wstring s, std::vector<std::wstring>* v) {
-  std::wregex r(L"^emit(?:-(alt|ctr?l|shift))*-([0-9a-z]|f1[0-2]|f[1-9]).exe",
+  std::wregex r(L"^emit(?:-(alt|ctr?l|shift|win(?:dows)?))*-([0-9a-z]+|f1[0-2]|f[1-9]).exe",
     std::regex_constants::icase);
   s = lower(s);
   if (!std::regex_match(s, r))
@@ -43,6 +43,12 @@ LPARAM vk(std::wstring str) {
     return VK_SHIFT;
   if (str == L"alt")
     return VK_MENU;
+  std::wregex win(L"^win(dows)?$");
+  if (std::regex_match(str, win))
+    return VK_LWIN;
+  std::wregex prtscr(L"^(prt|print)(scr|screen)$");
+  if (std::regex_match(str, prtscr))
+    return VK_SNAPSHOT;
   std::wregex fkey(L"^f([0-9]+)$");
   std::wsmatch fkey_match;
   if (std::regex_match(str, fkey_match, fkey)) {
