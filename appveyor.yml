@@ -12,6 +12,10 @@ configuration:
   - Release
 artifacts:
   - path: '**\*.zip'
+deploy:
+  release: v$(appveyor_build_version)
+  artifact: '**\*.zip'
+  draft: true
 build:
   project: build.xml
   verbosity: normal
