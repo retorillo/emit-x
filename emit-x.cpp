@@ -49,10 +49,28 @@ LPARAM vk(std::wstring str) {
   std::wregex prtscr(L"^(prt|print)(scr|screen)$");
   if (std::regex_match(str, prtscr))
     return VK_SNAPSHOT;
+  if (str == L"pageup")
+    return VK_PRIOR;
+  if (str == L"pagedown")
+    return VK_NEXT;
+  if (str == L"home")
+    return VK_HOME;
+  if (str == L"end")
+    return VK_END;
+  if (str == L"left")
+    return VK_LEFT;
+  if (str == L"right")
+    return VK_RIGHT;
+  if (str == L"up")
+    return VK_UP;
+  if (str == L"down")
+    return VK_DOWN;
+
   std::wregex fkey(L"^f([0-9]+)$");
   std::wsmatch fkey_match;
   if (std::regex_match(str, fkey_match, fkey)) {
     auto fnr = std::stoi(fkey_match[1]);
+    if (fnr > 24) return NULL;
     return VK_F1 + (fnr - 1);
   }
   if (str.length() > 1) return NULL;

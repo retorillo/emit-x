@@ -18,7 +18,10 @@ Name is case-insensitive. Currently, supports the following keys and its combina
 
 - Modifiers keys `Ctrl` (or `Ctl`), `Alt`, `Shift`
 - Windows Key `Win` (or `Windows`)
-- Function keys `F1`-`F12`
+- Function keys `F1`-`F20`
+- Home and End Keys `Home`, `End`
+- Page Up and Down Keys `PageUp`, `PageDown`
+- Directional Keys `Left`, `Right`, `Up`, `Down`
 - Numerical keys `0` - `9`
 - Alphabetical keys `A` - `Z`.
 - Print Screen Key `PrintScreen` (or `PrtScr`, `PrtScreen`, `PrintScr`)
