@@ -11,13 +11,14 @@ configuration:
   - Debug
   - Release
 artifacts:
-  path: '**\*.zip'
+  - path: '**\*.zip'
+    name: zip
 deploy:
   provider: GitHub
   auth_token:
     secure: rkO/ImnYrOuUv7sjK6f5VpWduvAAqojRWMWKkLo75iQj2E8A8UuF35DTDP7+Xwiz
   release: v$(appveyor_build_version)
-  artifact: '**\*.zip'
+  artifact: zip
   draft: true
 build:
   project: build.xml
