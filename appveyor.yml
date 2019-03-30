@@ -11,8 +11,9 @@ configuration:
   - Debug
   - Release
 artifacts:
-  - path: '**\*.zip'
+  path: '**\*.zip'
 deploy:
+  provider: GitHub
   release: v$(appveyor_build_version)
   artifact: '**\*.zip'
   draft: true
@@ -20,4 +21,4 @@ build:
   project: build.xml
   verbosity: normal
 test_script:
-  - cmd: msbuild build.xml /t:RunTest
+  cmd: msbuild build.xml /t:RunTest
