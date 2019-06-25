@@ -7,7 +7,7 @@ int WINAPI WinMain(HINSTANCE i, HINSTANCE p, LPSTR c, int s) {
   return !send(keys);
 }
 bool translate(std::wstring s, std::vector<std::wstring>* v) {
-  std::wregex r(L"^emit(?:-(alt|ctr?l|shift|win(?:dows)?))*-([0-9a-z]+|f1[0-2]|f[1-9]).exe",
+  std::wregex r(L"^emit(?:-(\\w+)){1,}\\.exe",
     std::regex_constants::icase);
   s = lower(s);
   if (!std::regex_match(s, r))
@@ -49,6 +49,17 @@ LPARAM vk(std::wstring str) {
   std::wregex prtscr(L"^(prt|print)(scr|screen)$");
   if (std::regex_match(str, prtscr))
     return VK_SNAPSHOT;
+  std::wregex del(L"^del(ete)?$");
+  if (std::regex_match(str, del))
+    return VK_DELETE;
+  std::wregex bs(L"^(back(space)?)|bs$");
+  if (std::regex_match(str, bs))
+    return VK_BACK;
+  std::wregex enter(L"^ent(er)?$");
+  if (std::regex_match(str, enter))
+    return VK_RETURN;
+  if (str == L"tab")
+    return VK_TAB;
   if (str == L"pageup")
     return VK_PRIOR;
   if (str == L"pagedown")

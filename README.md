@@ -25,6 +25,9 @@ Name is case-insensitive. Currently, supports the following keys and its combina
 - Numerical keys `0` - `9`
 - Alphabetical keys `A` - `Z`.
 - Print Screen Key `PrintScreen` (or `PrtScr`, `PrtScreen`, `PrintScr`)
+- Delete and Backspace key `Delete` (or `Del`), `Backspace` (or `BS`, `Back`)
+- Enter key `ENTER` (or `ENT`)
+- Tab key `Tab`
 
 This is "workaround" app. I'm expecting Microsoft implement genuine feature.
 
