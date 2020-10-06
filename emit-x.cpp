@@ -86,7 +86,7 @@ LPARAM vk(std::wstring str) {
   }
   if (str.length() > 1) return NULL;
   TCHAR ch = str[0];
-  if (L'0' <= ch && ch <= L'1' || L'A' <= ch && ch <= L'Z')
+  if (L'0' <= ch && ch <= L'9' || L'A' <= ch && ch <= L'Z')
     return ch;
   if (L'a' <= ch && ch <= L'z')
     return ch - 32;
