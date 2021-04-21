@@ -76,6 +76,10 @@ LPARAM vk(std::wstring str) {
     return VK_UP;
   if (str == L"down")
     return VK_DOWN;
+  if (str == L"escape" || str == L"esc")
+    return VK_ESCAPE;
+  if (str == L"space")
+    return VK_SPACE;
 
   std::wregex fkey(L"^f([0-9]+)$");
   std::wsmatch fkey_match;
