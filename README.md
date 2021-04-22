@@ -26,6 +26,8 @@ Name is case-insensitive. Currently, supports the following keys and its combina
 - Alphabetical keys `A` - `Z`.
 - Print Screen Key `PrintScreen` (or `PrtScr`, `PrtScreen`, `PrintScr`)
 - Delete and Backspace key `Delete` (or `Del`), `Backspace` (or `BS`, `Back`)
+- Escape key `Escape` or `ESC`
+- Spacebar `Space`
 - Enter key `ENTER` (or `ENT`)
 - Tab key `Tab`
 
@@ -44,4 +46,4 @@ Executable file is no longer included in this repository. Please download at:
 
 MIT License
 
-Copyright (C) 2017-2019 Retorillo
+Copyright (C) 2017-2021 Retorillo
